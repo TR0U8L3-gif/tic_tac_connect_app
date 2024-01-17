@@ -9,7 +9,6 @@ class CacheFirstTimer extends UseCase<void, NoParams>{
   final OnBoardingRepository _repository;
   @override
   ResultFuture<void> call(NoParams params) {
-    throw UnimplementedError();
-    //return _repository.cacheFirstTimer();
+    return _repository.cacheFirstTimer();
   }
 }

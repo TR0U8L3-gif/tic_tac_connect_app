@@ -9,6 +9,6 @@ class CheckIfFirstTimer extends UseCase<bool, NoParams> {
 
   @override
   ResultFuture<bool> call(NoParams params) {
-    throw UnimplementedError();
+    return _repository.checkIfFirstTimer();
   }
 }
