@@ -10,4 +10,7 @@ extension ContextExtension on BuildContext {
   double get width => size.width;
 
   double get height => size.height;
+
+  double get safeWidth => size.width;
+
 }
