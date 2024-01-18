@@ -11,6 +11,9 @@ class CacheFirstTimerEvent extends OnBoardingEvent {
     const CacheFirstTimerEvent();
 }
 
-class CheckIfFirstTimerEvent extends OnBoardingEvent {
-    const CheckIfFirstTimerEvent();
+class ShowOnBoardingEvent extends OnBoardingEvent {
+  const ShowOnBoardingEvent({required this.checkIfFirstTimer});
+
+  final bool checkIfFirstTimer;
+
 }

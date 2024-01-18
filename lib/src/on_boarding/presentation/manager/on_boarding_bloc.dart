@@ -1,8 +1,11 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:tic_tac_connect_app/core/common/domain/usecase/use_case.dart';
+import 'package:tic_tac_connect_app/core/services/dependency_injection/injection_container.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/domain/use_cases/cache_first_timer.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/domain/use_cases/check_if_first_timer.dart';
 
@@ -11,14 +14,14 @@ part 'on_boarding_event.dart';
 part 'on_boarding_state.dart';
 
 class OnBoardingBloc extends Bloc<OnBoardingEvent, OnBoardingState> {
-  OnBoardingBloc(
-      {required CacheFirstTimer cacheFirstTimer,
-      required CheckIfFirstTimer checkIfFirstTimer})
-      : _cacheFirstTimer = cacheFirstTimer,
+  OnBoardingBloc({
+    required CacheFirstTimer cacheFirstTimer,
+    required CheckIfFirstTimer checkIfFirstTimer,
+  })  : _cacheFirstTimer = cacheFirstTimer,
         _checkIfFirstTimer = checkIfFirstTimer,
         super(const OnBoardingInitialState()) {
     on<CacheFirstTimerEvent>(_cacheFirstTimerHandler);
-    on<CheckIfFirstTimerEvent>(_checkIfFirstTimerHandler);
+    on<ShowOnBoardingEvent>(_checkIfFirstTimerHandler);
   }
 
   final CacheFirstTimer _cacheFirstTimer;
@@ -28,7 +31,7 @@ class OnBoardingBloc extends Bloc<OnBoardingEvent, OnBoardingState> {
     CacheFirstTimerEvent event,
     Emitter<OnBoardingState> emit,
   ) async {
-    emit(const OnBoardingLoadingState());
+    emit(const OnBoardingCachingFirstTimerState());
 
     final result = await _cacheFirstTimer(
       NoParams(),
@@ -47,9 +50,14 @@ class OnBoardingBloc extends Bloc<OnBoardingEvent, OnBoardingState> {
   }
 
   Future<void> _checkIfFirstTimerHandler(
-    CheckIfFirstTimerEvent event,
+    ShowOnBoardingEvent event,
     Emitter<OnBoardingState> emit,
   ) async {
+    if (!event.checkIfFirstTimer) {
+      emit(const OnBoardingStatusState(isFirstTimer: true));
+      return;
+    }
+
     emit(const OnBoardingLoadingState());
 
     final result = await _checkIfFirstTimer(
@@ -57,8 +65,8 @@ class OnBoardingBloc extends Bloc<OnBoardingEvent, OnBoardingState> {
     );
 
     result.fold(
-          (l) => emit(const OnBoardingStatusState(isFirstTimer: true)),
-          (r) => emit(OnBoardingStatusState(isFirstTimer: r)),
+      (l) => emit(const OnBoardingStatusState(isFirstTimer: true)),
+      (r) => emit(OnBoardingStatusState(isFirstTimer: r)),
     );
   }
 }

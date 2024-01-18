@@ -24,6 +24,9 @@ class OnBoardingErrorState extends OnBoardingState {
   List<Object> get props => [message];
 }
 
+class OnBoardingCachingFirstTimerState extends OnBoardingState {
+  const OnBoardingCachingFirstTimerState();
+}
 class OnBoardingFirstTimerCachedState extends OnBoardingState {
   const OnBoardingFirstTimerCachedState();
 }

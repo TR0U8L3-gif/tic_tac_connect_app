@@ -6,13 +6,13 @@ import 'package:tic_tac_connect_app/src/on_boarding/presentation/manager/on_boar
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/widgets/on_boarding_body.dart';
 
 @RoutePage()
-class OnBoardingPage extends StatefulWidget implements AutoRouteWrapper {
-  const OnBoardingPage({super.key});
+class TutorialPage extends StatefulWidget implements AutoRouteWrapper {
+  const TutorialPage({super.key});
 
-  static const String routeName = '/on-boarding';
+  static const String routeName = '/tutorial';
 
   @override
-  State<OnBoardingPage> createState() => _OnBoardingPageState();
+  State<TutorialPage> createState() => _TutorialPageState();
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -23,8 +23,7 @@ class OnBoardingPage extends StatefulWidget implements AutoRouteWrapper {
   }
 }
 
-class _OnBoardingPageState extends State<OnBoardingPage> {
-
+class _TutorialPageState extends State<TutorialPage> {
   @override
   Widget build(BuildContext context) {
     return const OnBoardingBody();

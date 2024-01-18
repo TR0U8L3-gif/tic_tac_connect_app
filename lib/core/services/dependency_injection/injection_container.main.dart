@@ -23,6 +23,7 @@ Future<void> _externalInit() async {
   sl.registerSingleton<SharedPreferences>(
     preferences,
   );
+  sl.registerSingleton<AppRouter>(AppRouter());
   // //FirebaseAuth
   // sl.registerLazySingleton(() => FirebaseAuth.instance);
   // //FirebaseStorage

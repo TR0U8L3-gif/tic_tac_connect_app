@@ -54,7 +54,7 @@ void main() {
       },
       act: (bloc) => bloc.add(const CacheFirstTimerEvent()),
       expect: () => [
-        const OnBoardingLoadingState(),
+        const OnBoardingCachingFirstTimerState(),
         const OnBoardingFirstTimerCachedState(),
       ],
       verify: (bloc) {
@@ -73,7 +73,7 @@ void main() {
       },
       act: (bloc) => bloc.add(const CacheFirstTimerEvent()),
       expect: () => [
-        const OnBoardingLoadingState(),
+        const OnBoardingCachingFirstTimerState(),
         OnBoardingErrorState(message: tCacheFailure.errorMessage),
       ],
       verify: (bloc) {
@@ -83,18 +83,20 @@ void main() {
     );
   });
 
-  group('checkIfFirstTimer', () {
+  group('ShowOnBoardingEvent', () {
     const tIsFirstTimer = false;
 
     blocTest<OnBoardingBloc, OnBoardingState>(
-      'should emit [OnBoardingStatusState] '
-      'when method call is successful',
+      'should emit [OnBoardingStatusState()] '
+      'when  called method successfully with [checkIfFirstTimer: true]',
       build: () {
         when(() => checkIfFirstTimer(any()))
             .thenAnswer((_) async => const Right(tIsFirstTimer));
         return onBoardingBloc;
       },
-      act: (bloc) => bloc.add(const CheckIfFirstTimerEvent()),
+      act: (bloc) => bloc.add(
+        const ShowOnBoardingEvent(checkIfFirstTimer: true),
+      ),
       expect: () => [
         const OnBoardingLoadingState(),
         const OnBoardingStatusState(isFirstTimer: tIsFirstTimer),
@@ -107,19 +109,41 @@ void main() {
 
     blocTest<OnBoardingBloc, OnBoardingState>(
       'should emit [OnBoardingStatusState(isFirstTimer: true)] '
-      'when method call is unsuccessful',
+      'when  called method unsuccessfully with [checkIfFirstTimer: true]',
       build: () {
         when(() => checkIfFirstTimer(any()))
             .thenAnswer((_) async => const Left(tCacheFailure));
         return onBoardingBloc;
       },
-      act: (bloc) => bloc.add(const CheckIfFirstTimerEvent()),
+      act: (bloc) => bloc.add(
+        const ShowOnBoardingEvent(checkIfFirstTimer: true),
+      ),
       expect: () => [
         const OnBoardingLoadingState(),
         const OnBoardingStatusState(isFirstTimer: true),
       ],
       verify: (bloc) {
         verify(() => checkIfFirstTimer(NoParams())).called(1);
+        verifyNoMoreInteractions(checkIfFirstTimer);
+      },
+    );
+
+    blocTest<OnBoardingBloc, OnBoardingState>(
+      'should emit [OnBoardingStatusState()] '
+          'when  called method successfully with [checkIfFirstTimer: false]',
+      build: () {
+        when(() => checkIfFirstTimer(any()))
+            .thenAnswer((_) async => const Right(tIsFirstTimer));
+        return onBoardingBloc;
+      },
+      act: (bloc) => bloc.add(
+        const ShowOnBoardingEvent(checkIfFirstTimer: false),
+      ),
+      expect: () => [
+        const OnBoardingStatusState(isFirstTimer: true),
+      ],
+      verify: (bloc) {
+        verifyZeroInteractions(checkIfFirstTimer);
         verifyNoMoreInteractions(checkIfFirstTimer);
       },
     );
