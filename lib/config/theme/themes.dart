@@ -41,6 +41,7 @@ class AppThemes {
 
   static List<AppTheme> getList() => _config.values.toList();
 
+  static List<AppThemesNames> getListNames() => _config.keys.toList();
   static AppTheme getTheme(AppThemesNames name) =>
       _config[name] ?? _config.values.first;
   static ThemeMode getMode(AppThemesBrightness brightness){

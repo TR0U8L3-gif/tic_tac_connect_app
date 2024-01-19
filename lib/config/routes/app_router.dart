@@ -4,6 +4,7 @@ import 'package:tic_tac_connect_app/config/routes/guard/on_boarding_guard.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/on_boarding_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/tutorial_page.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/presentation/pages/theme_page.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
 class AppRouter extends $AppRouter {
@@ -22,6 +23,10 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           page: DashboardRoute.page,
           path: DashboardPage.routeName,
+        ),
+        AutoRoute(
+          page: ThemeRoute.page,
+          path: ThemePage.routeName,
         ),
 
       ];

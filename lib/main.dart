@@ -20,11 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<ThemeChangerBloc>(),
+      create: (context) =>
+          sl<ThemeChangerBloc>()..add(const ThemeChangerGetThemeEvent()),
       child: BlocBuilder<ThemeChangerBloc, ThemeChangerState>(
         builder: (context, state) {
           final theme = AppThemes.getTheme(state.themeChange.name);
-          final mode =  AppThemes.getMode(state.themeChange.brightness);
+          final mode = AppThemes.getMode(state.themeChange.brightness);
           return MaterialApp.router(
             routerConfig: sl<AppRouter>().config(),
             theme: theme.light,
