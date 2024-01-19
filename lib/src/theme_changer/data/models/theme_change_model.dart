@@ -51,14 +51,4 @@ class ThemeChangeModel extends ThemeChange {
   String toJson() {
     return jsonEncode(toMap());
   }
-
-  ThemeChangeModel copyWith({
-    AppThemesNames? name,
-    AppThemesBrightness? brightness,
-  }) {
-    return ThemeChangeModel(
-      name: name ?? this.name,
-      brightness: brightness ?? this.brightness,
-    );
-  }
 }

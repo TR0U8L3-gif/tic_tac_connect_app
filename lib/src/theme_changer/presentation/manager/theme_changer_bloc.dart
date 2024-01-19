@@ -48,14 +48,13 @@ class ThemeChangerBloc extends Bloc<ThemeChangerEvent, ThemeChangerState> {
     if (state.themeChange.brightness == event.brightness &&
         state.themeChange.name == event.name) return;
 
-    final themeChange = ThemeChange(
-      name: event.name ?? state.themeChange.name,
-      brightness: event.brightness ?? state.themeChange.brightness,
+    final themeChange = state.themeChange.copyWith(
+      name: event.name,
+      brightness: event.brightness,
     );
 
     emit(ThemeChangerState(themeChange: themeChange));
 
     await _cacheThemeData(CacheThemeDataParams(themeChange: themeChange));
-
   }
 }

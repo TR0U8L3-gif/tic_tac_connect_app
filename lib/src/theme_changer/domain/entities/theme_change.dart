@@ -8,6 +8,16 @@ class ThemeChange extends Equatable {
 
   final AppThemesBrightness brightness;
 
+  ThemeChange copyWith({
+    AppThemesNames? name,
+    AppThemesBrightness? brightness,
+  }) {
+    return ThemeChange(
+      name: name ?? this.name,
+      brightness: brightness ?? this.brightness,
+    );
+  }
+
   @override
   List<Object?> get props => [name.name, brightness.name];
 }
