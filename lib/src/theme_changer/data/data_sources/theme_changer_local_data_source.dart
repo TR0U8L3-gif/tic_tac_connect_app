@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
 import 'package:tic_tac_connect_app/core/common/domain/errors/exceptions.dart';
 import 'package:tic_tac_connect_app/core/utils/typedef.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/models/theme_change_model.dart';
@@ -24,8 +23,8 @@ class ThemeChangerLocalDataSourceImpl implements ThemeChangerLocalDataSource {
   @override
   Future<void> cacheThemeData({required ThemeChange themeChange}) async {
     final themeChangeModel = ThemeChangeModel(
-      themesName: themeChange.themesName,
-      themesBrightness: themeChange.themesBrightness,
+      name: themeChange.name,
+      brightness: themeChange.brightness,
     );
     try {
       await _preferences.setString(kThemeChangKey, themeChangeModel.toJson());

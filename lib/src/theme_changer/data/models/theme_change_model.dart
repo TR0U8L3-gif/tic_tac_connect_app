@@ -7,25 +7,25 @@ import 'package:tic_tac_connect_app/src/theme_changer/domain/entities/theme_chan
 
 class ThemeChangeModel extends ThemeChange {
   const ThemeChangeModel({
-    required super.themesName,
-    required super.themesBrightness,
+    required super.name,
+    required super.brightness,
   });
 
   factory ThemeChangeModel.first() {
     return ThemeChangeModel(
-      themesName: AppThemesNames.values.first,
-      themesBrightness: AppThemesBrightness.values.first,
+      name: AppThemesNames.values.first,
+      brightness: AppThemesBrightness.values.first,
     );
   }
 
   factory ThemeChangeModel.fromMap(Map<String, dynamic> map) {
     return ThemeChangeModel(
-      themesName: AppThemesNames.values.firstWhere(
-        (element) => element.name == (map['themesName'] as String),
+      name: AppThemesNames.values.firstWhere(
+        (element) => element.name == (map['name'] as String),
         orElse: () => AppThemesNames.purple,
       ),
-      themesBrightness: AppThemesBrightness.values.firstWhere(
-        (element) => element.name == (map['themesBrightness'] as String),
+      brightness: AppThemesBrightness.values.firstWhere(
+        (element) => element.name == (map['brightness'] as String),
         orElse: () => AppThemesBrightness.light,
       ),
     );
@@ -43,8 +43,8 @@ class ThemeChangeModel extends ThemeChange {
 
   Map<String, dynamic> toMap() {
     return {
-      'themesName': themesName.name,
-      'themesBrightness': themesBrightness.name,
+      'name': name.name,
+      'brightness': brightness.name,
     };
   }
 
@@ -53,12 +53,12 @@ class ThemeChangeModel extends ThemeChange {
   }
 
   ThemeChangeModel copyWith({
-    AppThemesNames? themesName,
-    AppThemesBrightness? themesBrightness,
+    AppThemesNames? name,
+    AppThemesBrightness? brightness,
   }) {
     return ThemeChangeModel(
-      themesName: themesName ?? this.themesName,
-      themesBrightness: themesBrightness ?? this.themesBrightness,
+      name: name ?? this.name,
+      brightness: brightness ?? this.brightness,
     );
   }
 }

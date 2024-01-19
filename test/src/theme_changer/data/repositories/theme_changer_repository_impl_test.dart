@@ -18,8 +18,8 @@ void main() {
   late ThemeChangerRepository repository;
 
   const tThemeChange = ThemeChange(
-    themesName: AppThemesNames.red,
-    themesBrightness: AppThemesBrightness.dark,
+    name: AppThemesNames.red,
+    brightness: AppThemesBrightness.dark,
   );
 
   setUp(() {
@@ -79,8 +79,8 @@ void main() {
 
   group('checkThemeData', () {
     const tThemeChangeModel = ThemeChangeModel(
-      themesName: AppThemesNames.red,
-      themesBrightness: AppThemesBrightness.dark,
+      name: AppThemesNames.red,
+      brightness: AppThemesBrightness.dark,
     );
     test(
       'should call [ThemeChangerRepository.checkThemeData] '

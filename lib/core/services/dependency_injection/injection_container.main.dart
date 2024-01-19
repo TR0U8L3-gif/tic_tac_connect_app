@@ -10,6 +10,8 @@ Future<void> setupServiceLocator() async {
   await _servicesInit();
   //Feature - OnBoarding
   await _onBoardingInit();
+  //Feature - ThemeChanger
+  await _themeChangerInit();
 
 }
 
@@ -67,6 +69,32 @@ Future<void> _onBoardingInit() async {
   //DataSource
   sl.registerLazySingleton<OnBoardingLocalDataSource>(
         () => OnBoardingLocalDataSourceImpl(
+      preferences: sl(),
+    ),
+  );
+}
+
+Future<void> _themeChangerInit() async {
+  //Bloc
+  sl.registerFactory(
+        () => ThemeChangerBloc(cacheThemeData: sl(), checkThemeData: sl()),
+  );
+  //UseCase
+  sl.registerLazySingleton(
+        () => CacheThemeData(repository: sl())
+  );
+  sl.registerLazySingleton(
+        () => CheckThemeData(repository: sl())
+  );
+  //Repository
+  sl.registerLazySingleton<ThemeChangerRepository>(
+        () => ThemeChangerRepositoryImpl(
+      localDataSource: sl(),
+    ),
+  );
+  //DataSource
+  sl.registerLazySingleton<ThemeChangerLocalDataSource>(
+        () => ThemeChangerLocalDataSourceImpl(
       preferences: sl(),
     ),
   );

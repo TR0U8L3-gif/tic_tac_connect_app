@@ -20,8 +20,8 @@ void main() {
   });
 
   const tThemeChange = ThemeChange(
-    themesName: AppThemesNames.purple,
-    themesBrightness: AppThemesBrightness.light,
+    name: AppThemesNames.purple,
+    brightness: AppThemesBrightness.light,
   );
 
   test(

@@ -14,18 +14,18 @@ void main() {
   late ThemeChangerLocalDataSource dataSource;
 
   const tThemeChange = ThemeChange(
-    themesName: AppThemesNames.red,
-    themesBrightness: AppThemesBrightness.dark,
+    name: AppThemesNames.red,
+    brightness: AppThemesBrightness.dark,
   );
 
   final tThemeChangeModel = ThemeChangeModel(
-    themesName: tThemeChange.themesName,
-    themesBrightness: tThemeChange.themesBrightness,
+    name: tThemeChange.name,
+    brightness: tThemeChange.brightness,
   );
 
   final tThemeChangeModelDefault = ThemeChangeModel(
-    themesName: AppThemesNames.values.first,
-    themesBrightness: AppThemesBrightness.values.first,
+    name: AppThemesNames.values.first,
+    brightness: AppThemesBrightness.values.first,
   );
 
   setUp(() {

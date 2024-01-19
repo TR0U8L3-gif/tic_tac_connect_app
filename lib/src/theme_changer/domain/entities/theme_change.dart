@@ -2,12 +2,12 @@ import 'package:equatable/equatable.dart';
 import 'package:tic_tac_connect_app/config/theme/themes.dart';
 
 class ThemeChange extends Equatable {
-  const ThemeChange({required this.themesName, required this.themesBrightness});
+  const ThemeChange({required this.name, required this.brightness});
 
-  final AppThemesNames themesName;
+  final AppThemesNames name;
 
-  final AppThemesBrightness themesBrightness;
+  final AppThemesBrightness brightness;
 
   @override
-  List<Object?> get props => [themesName.name, themesBrightness.name];
+  List<Object?> get props => [name.name, brightness.name];
 }

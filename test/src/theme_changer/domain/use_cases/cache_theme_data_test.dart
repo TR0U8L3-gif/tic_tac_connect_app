@@ -13,8 +13,8 @@ void main() {
   late ThemeChangerRepository repository;
 
   const tThemeChange = ThemeChange(
-    themesName: AppThemesNames.purple,
-    themesBrightness: AppThemesBrightness.light,
+    name: AppThemesNames.purple,
+    brightness: AppThemesBrightness.light,
   );
 
   setUp(() {

@@ -9,5 +9,11 @@ import 'package:tic_tac_connect_app/src/on_boarding/domain/repositories/on_board
 import 'package:tic_tac_connect_app/src/on_boarding/domain/use_cases/cache_first_timer.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/domain/use_cases/check_if_first_timer.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/manager/on_boarding_bloc.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/data/data_sources/theme_changer_local_data_source.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/data/repositories/theme_changer_repository_impl.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/domain/repositories/theme_changer_repository.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/domain/use_cases/cache_theme_data.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/domain/use_cases/check_theme_data.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/presentation/manager/theme_changer_bloc.dart';
 
 part 'injection_container.main.dart';

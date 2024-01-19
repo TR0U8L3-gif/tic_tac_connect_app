@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:provider/provider.dart';
 import 'package:tic_tac_connect_app/config/routes/app_router.dart';
-import 'package:tic_tac_connect_app/core/common/providers/theme_provider.dart';
+import 'package:tic_tac_connect_app/config/theme/themes.dart';
 import 'package:tic_tac_connect_app/core/services/dependency_injection/injection_container.dart';
+import 'package:tic_tac_connect_app/src/theme_changer/presentation/manager/theme_changer_bloc.dart';
 
 void main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -18,17 +19,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
-      builder: (context, child) {
-        final theme = context.watch<ThemeProvider>();
-        return MaterialApp.router(
-          routerConfig: sl<AppRouter>().config(),
-          theme: theme.light,
-          darkTheme: theme.dark,
-          themeMode: theme.mode,
-        );
-      },
+    return BlocProvider(
+      create: (context) => sl<ThemeChangerBloc>(),
+      child: BlocBuilder<ThemeChangerBloc, ThemeChangerState>(
+        builder: (context, state) {
+          final theme = AppThemes.getTheme(state.themeChange.name);
+          final mode =  AppThemes.getMode(state.themeChange.brightness);
+          return MaterialApp.router(
+            routerConfig: sl<AppRouter>().config(),
+            theme: theme.light,
+            darkTheme: theme.dark,
+            themeMode: mode,
+          );
+        },
+      ),
     );
   }
 }

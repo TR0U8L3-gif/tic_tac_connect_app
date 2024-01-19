@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show Colors;
+import 'package:flutter/material.dart' show Colors, ThemeMode;
 import 'package:tic_tac_connect_app/config/theme/theme.dart';
 
 enum AppThemesNames {
@@ -40,4 +40,15 @@ class AppThemes {
   static Map<AppThemesNames, AppTheme> getAll() => _config;
 
   static List<AppTheme> getList() => _config.values.toList();
+
+  static AppTheme getTheme(AppThemesNames name) =>
+      _config[name] ?? _config.values.first;
+  static ThemeMode getMode(AppThemesBrightness brightness){
+    switch(brightness){
+      case AppThemesBrightness.light:
+        return ThemeMode.light;
+      case AppThemesBrightness.dark:
+        return ThemeMode.dark;
+    }
+  }
 }

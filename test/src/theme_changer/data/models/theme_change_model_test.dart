@@ -11,8 +11,8 @@ import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
   const tThemeChangeModel = ThemeChangeModel(
-    themesName: AppThemesNames.red,
-    themesBrightness: AppThemesBrightness.dark,
+    name: AppThemesNames.red,
+    brightness: AppThemesBrightness.dark,
   );
 
   test('should be a subclass of [ThemeChange]', () {
