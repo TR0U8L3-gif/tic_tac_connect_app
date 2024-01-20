@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tic_tac_connect_app/config/theme/themes.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_back_button.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/presentation/manager/theme_changer_bloc.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/presentation/widgets/theme_grid_builder.dart';
@@ -118,11 +119,16 @@ class _ThemePageState extends State<ThemePage> {
                               ThemeGridBuilder(),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     );
                   },
                 ),
+              ),
+              const Positioned(
+                left: 0,
+                top: 0,
+                child: AppBackButton(),
               ),
             ],
           ),
