@@ -116,7 +116,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                           onDotClicked: (index) {
                             pageController.animateToPage(
                               index,
-                              duration: duration600,
+                              duration: kDuration600,
                               curve: Curves.easeInOut,
                             );
                           },
@@ -151,7 +151,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                                         );
                                   } else {
                                     pageController.nextPage(
-                                      duration: duration600,
+                                      duration: kDuration600,
                                       curve: Curves.easeInOut,
                                     );
                                   }

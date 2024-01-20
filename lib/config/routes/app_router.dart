@@ -7,6 +7,7 @@ import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/play_naviga
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/profile_navigation_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/on_boarding_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/tutorial_page.dart';
+import 'package:tic_tac_connect_app/src/profile/presentation/pages/profile_page.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/presentation/pages/theme_page.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -36,7 +37,10 @@ class AppRouter extends $AppRouter {
                   path: 'game-modes',
                   initial: true,
                 ),
-                AutoRoute(page: GameSettingsRoute.page, path: 'game-settings'),
+                AutoRoute(
+                  page: GameSettingsRoute.page,
+                  path: 'game-settings',
+                ),
               ],
             ),
             AutoRoute(
@@ -46,12 +50,19 @@ class AppRouter extends $AppRouter {
             AutoRoute(
               page: ProfileNavigationRoute.page,
               path: ProfileNavigationPage.tabName,
+              children: [
+                AutoRoute(
+                  page: ProfileRoute.page,
+                  path: ProfilePage.tabName,
+                  initial: true,
+                ),
+                AutoRoute(
+                  page: ThemeRoute.page,
+                  path: ThemePage.tabName,
+                ),
+              ],
             ),
           ],
-        ),
-        AutoRoute(
-          page: ThemeRoute.page,
-          path: ThemePage.routeName,
         ),
       ];
 }

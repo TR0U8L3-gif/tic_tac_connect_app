@@ -7,7 +7,6 @@ class ProfileNavigationPage extends StatelessWidget {
   static const String tabName = 'profile';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    );
+    return const AutoRouter();
   }
 }
