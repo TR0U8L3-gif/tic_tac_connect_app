@@ -51,9 +51,10 @@ class OnBoardingTile extends StatelessWidget {
                   Text(
                     pageContent.title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
                     ),
                   ),
                   SizedBox(
@@ -62,8 +63,9 @@ class OnBoardingTile extends StatelessWidget {
                   Text(
                     pageContent.description,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 24,
+                      color: context.theme.colorScheme.onBackground,
                     ),
                   ),
                 ],

@@ -124,7 +124,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                             dotHeight: 12,
                             dotWidth: 12,
                             spacing: 48,
-                            activeDotColor: context.theme.primaryColor,
+                            activeDotColor: context.theme.colorScheme.primary,
                           ),
                         ),
                       ),
@@ -138,11 +138,11 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
                             ? ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   fixedSize: Size(context.width * 0.64, 48),
-                                  backgroundColor: isFinalPage
-                                      ? context.theme.primaryColor
-                                      : context.theme.primaryColor
-                                          .withOpacity(0.8),
-                                  foregroundColor: Colors.white,
+                                  backgroundColor: context
+                                      .theme.colorScheme.primary
+                                      .withOpacity(isFinalPage ? 1 : 0.8),
+                                  foregroundColor:
+                                      context.theme.colorScheme.background,
                                 ),
                                 onPressed: () {
                                   if (isFinalPage) {

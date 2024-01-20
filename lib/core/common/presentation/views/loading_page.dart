@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 
@@ -9,11 +11,12 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = min(context.width, context.height);
     return Scaffold(
       body: Center(
         child: SizedBox(
-          width: context.width * kSizeFactor,
-          height: context.width * kSizeFactor,
+          width: size * kSizeFactor,
+          height: size * kSizeFactor,
           child: Stack(
             children: [
               Column(
@@ -48,14 +51,14 @@ class LoadingPage extends StatelessWidget {
               ),
               Align(
                 child: SizedBox(
-                  width: context.width * kSizeFactor / 3,
-                  height: context.width * kSizeFactor / 3,
+                  width: size * kSizeFactor / 3,
+                  height: size * kSizeFactor / 3,
                   child: Padding(
-                    padding: const EdgeInsets.all(kLineSize),
+                    padding: const EdgeInsets.all(kLineSize * 1.64),
                     child: CircularProgressIndicator(
-                      strokeWidth: kLineSize * kSizeFactor,
+                      strokeWidth: kLineSize * kSizeFactor * 0.8,
                       backgroundColor:
-                          context.theme.primaryColor.withOpacity(0.4),
+                          context.theme.colorScheme.primary.withOpacity(0.6),
                     ),
                   ),
                 ),
@@ -76,7 +79,7 @@ class LoadingPage extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: context.theme.primaryColor,
+        color: context.theme.colorScheme.primary,
         borderRadius: BorderRadius.circular(12),
       ),
     );
