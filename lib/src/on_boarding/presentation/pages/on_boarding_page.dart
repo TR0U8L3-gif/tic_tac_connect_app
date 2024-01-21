@@ -24,9 +24,8 @@ class OnBoardingPage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-
   @override
   Widget build(BuildContext context) {
-    return const OnBoardingBody();
+    return const PopScope(canPop: false, child: OnBoardingBody());
   }
 }
