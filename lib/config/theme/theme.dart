@@ -23,7 +23,7 @@ class AppTheme extends Equatable {
       useMaterial3: true,
     ).copyWith(
       appBarTheme: AppBarTheme(
-        foregroundColor: Colors.white,
+        foregroundColor: scheme.onBackground,
         backgroundColor: Color.alphaBlend(
           scheme.primary.withOpacity(0.8),
           scheme.background,
@@ -31,7 +31,7 @@ class AppTheme extends Equatable {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: Colors.white,
+          foregroundColor: scheme.onBackground,
           backgroundColor: Color.alphaBlend(
             scheme.primary.withOpacity(0.8),
             scheme.background,

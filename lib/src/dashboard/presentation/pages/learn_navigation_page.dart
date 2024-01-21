@@ -8,7 +8,6 @@ class LearnNavigationPage extends StatelessWidget {
   static const String tabName = 'learn';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    );
+    return const Scaffold();
   }
 }

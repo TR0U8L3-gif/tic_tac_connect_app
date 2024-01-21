@@ -27,10 +27,6 @@ class DashboardPage extends StatelessWidget {
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
-          appBar: AppBar(
-            title: Text(tabsRouter.current.path),
-            centerTitle: true,
-          ),
           extendBody: true,
           body: child,
           bottomNavigationBar: SizedBox(
