@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_circle.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_cross.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_line.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 
 class LoadingPage extends StatelessWidget {
@@ -19,31 +22,27 @@ class LoadingPage extends StatelessWidget {
           height: size * kSizeFactor,
           child: Stack(
             children: [
-              Column(
+              const Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _line(
-                    context: context,
+                  TicTacLine(
                     width: double.infinity,
                     height: kLineSize,
                   ),
-                  _line(
-                    context: context,
+                  TicTacLine(
                     width: double.infinity,
                     height: kLineSize,
                   ),
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _line(
-                    context: context,
+                  TicTacLine(
                     width: kLineSize,
                     height: double.infinity,
                   ),
-                  _line(
-                    context: context,
+                  TicTacLine(
                     width: kLineSize,
                     height: double.infinity,
                   ),
@@ -62,25 +61,43 @@ class LoadingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: size * kSizeFactor / 3,
+                  height: size * kSizeFactor / 3,
+                  child: TicTacCircle(
+                    size: size * kSizeFactor / 3,
+                    lineWidth: kLineSize * kSizeFactor * 0.8,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: SizedBox(
+                  width: size * kSizeFactor / 3,
+                  height: size * kSizeFactor / 3,
+                  child: TicTacCross(
+                    size: size * kSizeFactor / 3,
+                    lineWidth: kLineSize * kSizeFactor * 0.8,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: SizedBox(
+                  width: size * kSizeFactor / 3,
+                  height: size * kSizeFactor / 3,
+                  child: TicTacCross(
+                    size: size * kSizeFactor / 3,
+                    lineWidth: kLineSize * kSizeFactor * 0.8,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _line({
-    required BuildContext context,
-    required double width,
-    required double height,
-  }) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: context.theme.colorScheme.primary,
-        borderRadius: BorderRadius.circular(12),
       ),
     );
   }

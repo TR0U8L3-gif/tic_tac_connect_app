@@ -26,7 +26,6 @@ class ThemeChangerBloc extends Bloc<ThemeChangerEvent, ThemeChangerState> {
   }
 
   final CacheThemeData _cacheThemeData;
-
   final CheckThemeData _checkThemeData;
 
   Future<void> _getThemeHandler(

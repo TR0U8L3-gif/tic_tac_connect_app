@@ -6,7 +6,7 @@ import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 
 @RoutePage()
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends StatelessWidget implements AutoRouteWrapper {
   const DashboardPage({super.key});
 
   static const String routeName = '/dashboard';
@@ -19,11 +19,10 @@ class DashboardPage extends StatelessWidget {
         LearnNavigationRoute(),
         ProfileNavigationRoute(),
       ],
-      transitionBuilder: (context, child, animation) =>
-          FadeTransition(
-            opacity: animation,
-            child: child,
-          ),
+      transitionBuilder: (context, child, animation) => FadeTransition(
+        opacity: animation,
+        child: child,
+      ),
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
@@ -39,15 +38,24 @@ class DashboardPage extends StatelessWidget {
               onTap: tabsRouter.setActiveIndex,
               items: const [
                 BottomNavigationBarItem(
-                  icon: Icon(Ionicons.grid_outline, size: 24,),
+                  icon: Icon(
+                    Ionicons.grid_outline,
+                    size: 24,
+                  ),
                   label: 'play',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Ionicons.school_outline, size: 24,),
+                  icon: Icon(
+                    Ionicons.school_outline,
+                    size: 24,
+                  ),
                   label: 'learn',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Ionicons.person_outline, size: 24,),
+                  icon: Icon(
+                    Ionicons.person_outline,
+                    size: 24,
+                  ),
                   label: 'profile',
                 ),
               ],
@@ -56,5 +64,10 @@ class DashboardPage extends StatelessWidget {
         );
       },
     );
+  }
+
+  @override
+  Widget wrappedRoute(BuildContext context) {
+    return PopScope(canPop: false, child: this);
   }
 }

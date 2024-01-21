@@ -5,6 +5,8 @@ import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_contain
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_scaffold.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
+import 'package:tic_tac_connect_app/src/play/presentation/pages/games/computer_game_page.dart';
+import 'package:tic_tac_connect_app/src/play/presentation/pages/games/match_game_page.dart';
 
 @RoutePage()
 class GameModesPage extends StatelessWidget {
@@ -28,42 +30,47 @@ class GameModesPage extends StatelessWidget {
                   child: Text(
                     'Lets Play',
                     style: TextStyle(
-                        fontSize: kFontSizeLarge,
-                        fontWeight: FontWeight.bold,
-                        color: context.theme.colorScheme.onBackground,
+                      fontSize: kFontSizeLarge,
+                      fontWeight: FontWeight.bold,
+                      color: context.theme.colorScheme.onBackground,
                     ),
                   ),
                 ),
-                const SizedBox(height: 12,),
+                const SizedBox(
+                  height: 12,
+                ),
                 _tile(
                   context: context,
                   icon: Ionicons.game_controller,
                   gameMode: 'match',
                   definition: 'play with friends on one device',
-                  onTap: () {  },
+                  onTap: () => context.router.pushNamed(MatchGamePage.pathName),
                 ),
                 _tile(
                   context: context,
                   icon: Ionicons.hardware_chip_outline,
                   gameMode: 'computer',
                   definition: 'play against a computer',
-                  onTap: () {  },
+                  onTap: () =>
+                      context.router.pushNamed(ComputerGamePage.pathName),
                 ),
                 _tile(
                   context: context,
                   icon: Ionicons.earth_outline,
                   gameMode: 'online',
                   definition: 'find matches on the Internet',
-                  onTap: () {  },
+                  onTap: () {},
                 ),
                 _tile(
                   context: context,
                   icon: Ionicons.home_outline,
                   gameMode: 'offline',
                   definition: 'find local matches',
-                  onTap: () {  },
+                  onTap: () {},
                 ),
-                const SizedBox(height: 24,),
+                const SizedBox(
+                  height: 24,
+                ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -75,20 +82,22 @@ class GameModesPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12,),
+                const SizedBox(
+                  height: 12,
+                ),
                 _tile(
                   context: context,
                   icon: Ionicons.earth_outline,
                   gameMode: 'online',
                   definition: 'private room on the Internet',
-                  onTap: () {  },
+                  onTap: () {},
                 ),
                 _tile(
                   context: context,
                   icon: Ionicons.home_outline,
                   gameMode: 'offline',
                   definition: 'LAN or Bluetooth match',
-                  onTap: () {  },
+                  onTap: () {},
                 ),
               ],
             ),

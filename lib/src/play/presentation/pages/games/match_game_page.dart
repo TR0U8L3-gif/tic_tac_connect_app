@@ -17,7 +17,7 @@ class _MatchGamePageState extends State<MatchGamePage> {
   Widget build(BuildContext context) {
     return AppScaffold(
       child: Align(
-
+        child: Text('Match'),
       ),
     );
   }
