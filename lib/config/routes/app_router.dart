@@ -7,6 +7,7 @@ import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/play_naviga
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/profile_navigation_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/on_boarding_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/tutorial_page.dart';
+import 'package:tic_tac_connect_app/src/play/presentation/pages/game_modes_page.dart';
 import 'package:tic_tac_connect_app/src/profile/presentation/pages/profile_page.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/presentation/pages/theme_page.dart';
 
@@ -34,7 +35,7 @@ class AppRouter extends $AppRouter {
               children: [
                 AutoRoute(
                   page: GameModesRoute.page,
-                  path: 'game-modes',
+                  path: GameModesPage.tabName,
                   initial: true,
                 ),
                 AutoRoute(

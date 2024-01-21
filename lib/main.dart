@@ -33,8 +33,6 @@ class MyApp extends StatelessWidget {
           final appRouter = sl<AppRouter>();
           return MaterialApp.router(
             routerConfig: appRouter.config(),
-            routerDelegate: appRouter.delegate(),
-            routeInformationParser: appRouter.defaultRouteParser(),
             theme: theme.light,
             darkTheme: theme.dark,
             themeMode: mode,
