@@ -4,6 +4,12 @@ import 'package:tic_tac_connect_app/src/play/domain/entities/figure.dart';
 import 'package:tic_tac_connect_app/src/play/domain/entities/game_data.dart';
 import 'package:tic_tac_connect_app/src/play/domain/entities/position.dart';
 
+enum PlayerRound {
+  current,
+  previous,
+  next,
+}
+
 class GameEngine {
   const GameEngine({
     required this.players,
@@ -24,11 +30,27 @@ class GameEngine {
 
   ///x
   final int rowLength;
+
   ///y
   final int columnLength;
   final int players;
 
-
+  Figure getPlayer({
+    required GameData data,
+    PlayerRound playerRound = PlayerRound.current,
+  }) {
+    var playerIndex = 0;
+    switch (playerRound) {
+      case PlayerRound.current:
+        break;
+      case PlayerRound.next:
+        playerIndex = 1;
+      case PlayerRound.previous:
+        playerIndex = -1;
+    }
+    final index = (data.round + playerIndex) % data.playerOrder.length;
+    return data.playerOrder[index];
+  }
 
   Figure? checkForWinner({required GameData data}) {
     final rows = columnLength;
@@ -98,7 +120,6 @@ class GameEngine {
     required Position position,
     required Figure figure,
   }) {
-
     if (figure is FigureNone) {
       return null;
     }

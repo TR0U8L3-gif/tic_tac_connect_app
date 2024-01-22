@@ -24,7 +24,7 @@ class GameData extends Equatable {
   GameData copyWith({
     List<Figure>? playerOrder,
     List<List<Figure?>>? board,
-    int? move,
+    int? round,
     int? connect,
     int? rowLength,
     int? columnLength,
@@ -32,7 +32,7 @@ class GameData extends Equatable {
     return GameData(
       playerOrder: playerOrder ?? this.playerOrder,
       board: board ?? this.board,
-      round: move ?? this.round,
+      round: round ?? this.round,
       connect: connect ?? this.connect,
       rowLength: rowLength ?? this.rowLength,
       columnLength: columnLength ?? this.columnLength,

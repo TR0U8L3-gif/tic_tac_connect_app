@@ -5,21 +5,6 @@ abstract class Figure extends Equatable {
     this.symbol = '',
   });
 
-  factory Figure.fromMap(Map<String, dynamic> map) {
-    final symbol = map['symbol'] ?? '';
-    switch (symbol) {
-      case 'X':
-        return const FigureCross();
-      case 'O':
-        return const FigureCircle();
-      case 'S':
-        return const FigureSquare();
-      case 'T':
-        return const FigureTriangle();
-    }
-    return FigureNone();
-  }
-
   factory Figure.fromSymbol(String symbol) {
     switch (symbol) {
       case 'X':
@@ -50,12 +35,9 @@ abstract class Figure extends Equatable {
     return FigureNone();
   }
 
-  Map<String, dynamic> toMap() {
-    return {'symbol': symbol};
-  }
-
   @override
   List<Object?> get props => [runtimeType, symbol];
+
 }
 
 class FigureCross extends Figure {
