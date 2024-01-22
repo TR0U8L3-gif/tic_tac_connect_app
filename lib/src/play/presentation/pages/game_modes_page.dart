@@ -5,6 +5,7 @@ import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_contain
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_scaffold.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
+import 'package:tic_tac_connect_app/src/play/presentation/pages/game_settings_page.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/pages/games/computer_game_page.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/pages/games/match_game_page.dart';
 
@@ -44,7 +45,7 @@ class GameModesPage extends StatelessWidget {
                   icon: Ionicons.game_controller,
                   gameMode: 'match',
                   definition: 'play with friends on one device',
-                  onTap: () => context.router.pushNamed(MatchGamePage.pathName),
+                  onTap: () => context.router.pushNamed(GameSettingPage.tabName),
                 ),
                 _tile(
                   context: context,
