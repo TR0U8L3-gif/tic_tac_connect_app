@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
 import 'package:tic_tac_connect_app/core/common/domain/errors/exceptions.dart';
 import 'package:tic_tac_connect_app/core/common/domain/errors/failure.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/data_sources/theme_changer_local_data_source.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/models/theme_change_model.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/repositories/theme_changer_repository_impl.dart';
@@ -38,7 +38,7 @@ void main() {
       () async {
         // arrange
         when(() => dataSource.cacheThemeData(
-                themeChange: any(named: 'themeChange')))
+                themeChange: any(named: 'themeChange'),),)
             .thenAnswer((invocation) async => Future.value());
         // act
         final result =
@@ -64,7 +64,7 @@ void main() {
       () async {
         // arrange
         when(() => dataSource.cacheThemeData(
-            themeChange: any(named: 'themeChange'))).thenThrow(tException);
+            themeChange: any(named: 'themeChange'),),).thenThrow(tException);
         // act
         final result =
             await repository.cacheThemeData(themeChange: tThemeChange);

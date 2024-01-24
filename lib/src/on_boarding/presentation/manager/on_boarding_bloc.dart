@@ -1,11 +1,8 @@
 import 'dart:async';
 
-import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:tic_tac_connect_app/core/common/domain/usecase/use_case.dart';
-import 'package:tic_tac_connect_app/core/services/dependency_injection/injection_container.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/domain/use_cases/cache_first_timer.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/domain/use_cases/check_if_first_timer.dart';
 

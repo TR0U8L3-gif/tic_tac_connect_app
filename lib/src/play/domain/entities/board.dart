@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/src/play/domain/entities/figure.dart';
@@ -100,7 +99,7 @@ class Board {
   }
 
   int _getPlayersMax() {
-    int result = min(columnLength, rowLength) - 1;
+    var result = min(columnLength, rowLength) - 1;
 
     if (result > kMaxPlayers) {
       result = kMaxPlayers;
@@ -141,7 +140,7 @@ class Board {
   List<List<Figure?>> _generateEmptyBoard() {
     return List<List<Figure?>>.generate(
       columnLength,
-      (int index) => List<Figure?>.filled(rowLength, null, growable: false),
+      (int index) => List<Figure?>.filled(rowLength, null),
       growable: false,
     );
   }
@@ -173,7 +172,7 @@ class Board {
     var output = '';
     for (final row in board) {
       output += row.toString();
-      output += "\n";
+      output += '\n';
     }
     return output;
   }

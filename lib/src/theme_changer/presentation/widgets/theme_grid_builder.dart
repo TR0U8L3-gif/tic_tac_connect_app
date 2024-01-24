@@ -28,6 +28,6 @@ class ThemeGridBuilder extends StatelessWidget {
                   );
             },
           );
-        });
+        },);
   }
 }

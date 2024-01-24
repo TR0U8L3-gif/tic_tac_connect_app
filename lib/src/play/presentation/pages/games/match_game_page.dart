@@ -15,7 +15,7 @@ class MatchGamePage extends StatefulWidget {
 class _MatchGamePageState extends State<MatchGamePage> {
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return const AppScaffold(
       child: Align(
         child: Text('Match'),
       ),

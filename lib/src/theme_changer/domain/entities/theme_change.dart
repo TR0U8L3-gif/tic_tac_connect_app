@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 
 class ThemeChange extends Equatable {
   const ThemeChange({required this.name, required this.brightness});

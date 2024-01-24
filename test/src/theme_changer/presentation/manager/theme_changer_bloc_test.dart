@@ -2,8 +2,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
 import 'package:tic_tac_connect_app/core/common/domain/usecase/use_case.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/models/theme_change_model.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/entities/theme_change.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/use_cases/cache_theme_data.dart';
@@ -37,7 +37,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(NoParams());
     registerFallbackValue(
-        const CacheThemeDataParams(themeChange: tThemeChange));
+        const CacheThemeDataParams(themeChange: tThemeChange),);
   });
 
   test(
@@ -67,7 +67,7 @@ void main() {
           brightness: tThemeChange.brightness,
           name: tThemeChange.name,
         ),
-      )
+      ),
     ],
   );
 

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
 import 'package:tic_tac_connect_app/core/helpers/strings.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 import 'package:tic_tac_connect_app/core/utils/typedef.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/models/theme_change_model.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/entities/theme_change.dart';

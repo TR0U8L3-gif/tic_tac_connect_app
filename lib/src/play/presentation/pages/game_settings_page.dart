@@ -204,9 +204,9 @@ class GameSettingPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               TicTacCross(
-                                  size: constraints.maxWidth / 2, lineWidth: 12),
+                                  size: constraints.maxWidth / 2, lineWidth: 12,),
                               TicTacCircle(
-                                  size: constraints.maxWidth / 2, lineWidth: 12),
+                                  size: constraints.maxWidth / 2, lineWidth: 12,),
                             ],
                           ),
                         ),

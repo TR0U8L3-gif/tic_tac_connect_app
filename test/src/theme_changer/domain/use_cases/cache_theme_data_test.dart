@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/entities/theme_change.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/repositories/theme_changer_repository.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/use_cases/cache_theme_data.dart';

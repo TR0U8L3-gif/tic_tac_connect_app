@@ -7,7 +7,6 @@ import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/pages/game_settings_page.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/pages/games/computer_game_page.dart';
-import 'package:tic_tac_connect_app/src/play/presentation/pages/games/match_game_page.dart';
 
 @RoutePage()
 class GameModesPage extends StatelessWidget {
@@ -153,9 +152,9 @@ class GameModesPage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
           ],
-        )),
+        ),),
       ),
     );
   }

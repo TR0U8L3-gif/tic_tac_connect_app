@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tic_tac_connect_app/config/theme/themes.dart';
 import 'package:tic_tac_connect_app/core/common/domain/errors/exceptions.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/data_sources/theme_changer_local_data_source.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/data/models/theme_change_model.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/domain/entities/theme_change.dart';

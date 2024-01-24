@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/views/loading_page.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/domain/entities/page_content.dart';

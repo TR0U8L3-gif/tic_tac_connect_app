@@ -1,26 +1,6 @@
 import 'package:flutter/material.dart' show Colors, ThemeMode;
 import 'package:tic_tac_connect_app/config/theme/theme.dart';
-
-enum AppThemesNames {
-  blueGrey,
-  red,
-  pink,
-  purple,
-  indigo,
-  blue,
-  teal,
-  green,
-  lime,
-  yellow,
-  orange,
-  brown,
-}
-
-enum AppThemesBrightness {
-  light,
-  dark,
-}
-
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 class AppThemes {
   static final _config = {
     AppThemesNames.blueGrey: const AppTheme(color: Colors.blueGrey),

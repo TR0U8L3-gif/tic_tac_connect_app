@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/utils/constant.dart';
-import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({

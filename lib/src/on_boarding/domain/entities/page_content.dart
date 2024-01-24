@@ -1,12 +1,5 @@
 import 'package:equatable/equatable.dart';
-
-enum PageContentEnum {
-  first,
-  second,
-  third,
-  fourth,
-}
-
+import 'package:tic_tac_connect_app/core/utils/enums.dart';
 class PageContent extends Equatable {
   const PageContent({
     required this.imageUrl,
@@ -16,8 +9,8 @@ class PageContent extends Equatable {
 
   factory PageContent.page({required PageContentEnum pagePosition}) {
     String? imageUrl;
-    String title = 'title: ${pagePosition.name}';
-    String description = 'description: ${pagePosition.name}';
+    final title = 'title: ${pagePosition.name}';
+    final description = 'description: ${pagePosition.name}';
 
     switch (pagePosition) {
       case PageContentEnum.first:

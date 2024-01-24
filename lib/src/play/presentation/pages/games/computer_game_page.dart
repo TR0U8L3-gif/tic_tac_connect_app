@@ -16,7 +16,7 @@ class ComputerGamePage extends StatefulWidget {
 class _ComputerGamePageState extends State<ComputerGamePage> {
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return const AppScaffold(
       child: Align(
         child: Text('Computer'),
       ),
