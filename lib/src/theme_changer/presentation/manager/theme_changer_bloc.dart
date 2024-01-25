@@ -10,6 +10,7 @@ import 'package:tic_tac_connect_app/src/theme_changer/domain/use_cases/cache_the
 import 'package:tic_tac_connect_app/src/theme_changer/domain/use_cases/check_theme_data.dart';
 
 part 'theme_changer_event.dart';
+
 part 'theme_changer_state.dart';
 
 class ThemeChangerBloc extends Bloc<ThemeChangerEvent, ThemeChangerState> {
@@ -32,8 +33,10 @@ class ThemeChangerBloc extends Bloc<ThemeChangerEvent, ThemeChangerState> {
   ) async {
     final result = await _checkThemeData(NoParams());
     result.fold(
-      (l) => emit(ThemeChangerState(themeChange: ThemeChangeModel.first())),
-      (r) => emit(ThemeChangerState(themeChange: r)),
+      (l) =>
+          emit(ThemeChangerLoadedState(themeChange: ThemeChangeModel.first())),
+      (r) =>
+          emit(ThemeChangerLoadedState(themeChange: r)),
     );
   }
 

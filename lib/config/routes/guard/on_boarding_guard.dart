@@ -18,15 +18,12 @@ class OnBoardingGuard extends AutoRouteGuard {
     StreamSubscription<OnBoardingState>? streamSubscription;
     streamSubscription = bloc.stream.listen(
       (state) {
-        print(state);
         if (state is OnBoardingStatusState) {
           if (state.isFirstTimer) {
             resolver.next();
           } else {
             router.replaceNamed(DashboardPage.routeName);
           }
-
-          FlutterNativeSplash.remove();
           streamSubscription?.cancel();
         }
       },

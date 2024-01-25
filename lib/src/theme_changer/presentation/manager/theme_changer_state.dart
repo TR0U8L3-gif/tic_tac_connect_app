@@ -8,3 +8,7 @@ class ThemeChangerState extends Equatable{
   @override
   List<Object?> get props => [themeChange];
 }
+
+class ThemeChangerLoadedState extends ThemeChangerState{
+  const ThemeChangerLoadedState({required super.themeChange});
+}

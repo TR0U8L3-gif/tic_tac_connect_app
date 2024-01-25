@@ -6,15 +6,12 @@ abstract class OnBoardingState extends Equatable {
   @override
   List<Object> get props => [];
 }
-
 class OnBoardingInitialState extends OnBoardingState {
   const OnBoardingInitialState();
 }
-
 class OnBoardingLoadingState extends OnBoardingState {
   const OnBoardingLoadingState();
 }
-
 class OnBoardingErrorState extends OnBoardingState {
   const OnBoardingErrorState({required this.message});
 
@@ -23,14 +20,12 @@ class OnBoardingErrorState extends OnBoardingState {
   @override
   List<Object> get props => [message];
 }
-
 class OnBoardingCachingFirstTimerState extends OnBoardingState {
   const OnBoardingCachingFirstTimerState();
 }
 class OnBoardingFirstTimerCachedState extends OnBoardingState {
   const OnBoardingFirstTimerCachedState();
 }
-
 class OnBoardingStatusState extends OnBoardingState {
   const OnBoardingStatusState({required this.isFirstTimer});
 
