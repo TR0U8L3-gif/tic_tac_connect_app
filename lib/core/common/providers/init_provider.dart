@@ -29,6 +29,12 @@ class InitProvider with ChangeNotifier {
     for (var index = 0; index < _initialization.keys.length; index++) {
       final bloc = _initialization.keys.toList()[index];
       final blocState = _initialization.values.toList()[index];
+
+      if (bloc.state.runtimeType == blocState) {
+        _markAsDone(null, blocState);
+        continue;
+      }
+
       StreamSubscription<dynamic>? streamSub;
       streamSub = bloc.stream.listen(
         (state) {
@@ -49,7 +55,7 @@ class InitProvider with ChangeNotifier {
     final index = _initialization.values.toList().indexOf(state);
     try {
       _done?[index] = true;
-      debugPrint('initialized $streamSubscription, $state')
+      debugPrint('initialized $streamSubscription, $state');
       streamSubscription?.cancel();
     } catch (e) {
       debugPrint('$e');

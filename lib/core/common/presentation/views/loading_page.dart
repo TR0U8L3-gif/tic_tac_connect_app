@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_board.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_circle.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_cross.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_line.dart';
@@ -9,90 +10,57 @@ import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key});
 
-  static const kLineSize = 12.0;
-  static const kSizeFactor = 0.8;
-
   @override
   Widget build(BuildContext context) {
+    const lineSize = 12.0;
+    const sizeFactor = 0.8;
+
     final size = min(context.width, context.height);
+    final boardSize = size * sizeFactor;
+
     return Scaffold(
       body: Center(
         child: SizedBox(
-          width: size * kSizeFactor,
-          height: size * kSizeFactor,
+          width: boardSize,
+          height: boardSize,
           child: Stack(
             children: [
-              const Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TicTacLine(
-                    width: double.infinity,
-                    height: kLineSize,
-                  ),
-                  TicTacLine(
-                    width: double.infinity,
-                    height: kLineSize,
-                  ),
-                ],
-              ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TicTacLine(
-                    width: kLineSize,
-                    height: double.infinity,
-                  ),
-                  TicTacLine(
-                    width: kLineSize,
-                    height: double.infinity,
-                  ),
-                ],
-              ),
+              TicTacBoard(boardSize: boardSize, lineSize: lineSize),
               Align(
                 child: SizedBox(
-                  width: size * kSizeFactor / 3,
-                  height: size * kSizeFactor / 3,
+                  width: boardSize / 3,
+                  height: boardSize / 3,
                   child: Padding(
-                    padding: const EdgeInsets.all(kLineSize * 1.64),
+                    padding: const EdgeInsets.all(lineSize),
                     child: CircularProgressIndicator(
-                      strokeWidth: kLineSize * kSizeFactor * 0.8,
+                      strokeWidth: lineSize,
                       backgroundColor:
                           context.theme.colorScheme.primary.withOpacity(0.6),
+                      strokeCap: StrokeCap.round,
+                      strokeAlign: -1,
                     ),
                   ),
                 ),
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: SizedBox(
-                  width: size * kSizeFactor / 3,
-                  height: size * kSizeFactor / 3,
-                  child: TicTacCircle(
-                    size: size * kSizeFactor / 3,
-                    lineWidth: kLineSize * kSizeFactor * 0.8,
-                  ),
+                child: TicTacCircle(
+                  size: boardSize / 3,
+                  lineWidth: lineSize,
                 ),
               ),
               Align(
                 alignment: Alignment.centerRight,
-                child: SizedBox(
-                  width: size * kSizeFactor / 3,
-                  height: size * kSizeFactor / 3,
-                  child: TicTacCross(
-                    size: size * kSizeFactor / 3,
-                    lineWidth: kLineSize * kSizeFactor * 0.8,
-                  ),
+                child: TicTacCross(
+                  size: boardSize / 3,
+                  lineWidth: lineSize,
                 ),
               ),
               Align(
                 alignment: Alignment.bottomLeft,
-                child: SizedBox(
-                  width: size * kSizeFactor / 3,
-                  height: size * kSizeFactor / 3,
-                  child: TicTacCross(
-                    size: size * kSizeFactor / 3,
-                    lineWidth: kLineSize * kSizeFactor * 0.8,
-                  ),
+                child: TicTacCross(
+                  size: boardSize/ 3,
+                  lineWidth: lineSize,
                 ),
               ),
             ],

@@ -12,7 +12,8 @@ Future<void> setupServiceLocator() async {
   await _onBoardingInit();
   //Feature - ThemeChanger
   await _themeChangerInit();
-
+  //Feature - Initialization
+  await _initializationInit();
 }
 
 Future<void> _externalInit() async {
@@ -44,31 +45,31 @@ Future<void> _servicesInit() async {
 Future<void> _onBoardingInit() async {
   //Bloc
   sl.registerFactory(
-        () => OnBoardingBloc(
+    () => OnBoardingBloc(
       cacheFirstTimer: sl(),
       checkIfFirstTimer: sl(),
     ),
   );
   //UseCase
   sl.registerLazySingleton(
-        () => CacheFirstTimer(
+    () => CacheFirstTimer(
       repository: sl(),
     ),
   );
   sl.registerLazySingleton(
-        () => CheckIfFirstTimer(
+    () => CheckIfFirstTimer(
       repository: sl(),
     ),
   );
   //Repository
   sl.registerLazySingleton<OnBoardingRepository>(
-        () => OnBoardingRepositoryImpl(
+    () => OnBoardingRepositoryImpl(
       localDataSource: sl(),
     ),
   );
   //DataSource
   sl.registerLazySingleton<OnBoardingLocalDataSource>(
-        () => OnBoardingLocalDataSourceImpl(
+    () => OnBoardingLocalDataSourceImpl(
       preferences: sl(),
     ),
   );
@@ -77,25 +78,28 @@ Future<void> _onBoardingInit() async {
 Future<void> _themeChangerInit() async {
   //Bloc
   sl.registerFactory(
-        () => ThemeChangerBloc(cacheThemeData: sl(), checkThemeData: sl()),
+    () => ThemeChangerBloc(cacheThemeData: sl(), checkThemeData: sl()),
   );
   //UseCase
-  sl.registerLazySingleton(
-        () => CacheThemeData(repository: sl())
-  );
-  sl.registerLazySingleton(
-        () => CheckThemeData(repository: sl())
-  );
+  sl.registerLazySingleton(() => CacheThemeData(repository: sl()));
+  sl.registerLazySingleton(() => CheckThemeData(repository: sl()));
   //Repository
   sl.registerLazySingleton<ThemeChangerRepository>(
-        () => ThemeChangerRepositoryImpl(
+    () => ThemeChangerRepositoryImpl(
       localDataSource: sl(),
     ),
   );
   //DataSource
   sl.registerLazySingleton<ThemeChangerLocalDataSource>(
-        () => ThemeChangerLocalDataSourceImpl(
+    () => ThemeChangerLocalDataSourceImpl(
       preferences: sl(),
     ),
+  );
+}
+
+Future<void> _initializationInit() async {
+  //Bloc
+  sl.registerFactory(
+    InitBloc.new,
   );
 }

@@ -75,22 +75,6 @@ void main() {
     });
   }
 
-  Future<R> expectNotifyListenerCalls<T extends ChangeNotifier, R>(
-    T notifier,
-    Future<R> Function() testFunction,
-    Function(T) testValue,
-    List<dynamic> matcherList,
-  ) async {
-    var i = 0;
-    notifier.addListener(() {
-      expect(testValue(notifier), matcherList[i]);
-      i++;
-    });
-    final result = await testFunction();
-    expect(i, matcherList.length);
-    return result;
-  }
-
   runTestsWithoutInitialization(() {
     test('should return [initialized] true and [done] null', () {
       expect(initProvider.done, null);
@@ -121,7 +105,7 @@ void main() {
 
       blocTheme.add(const ThemeChangerGetThemeEvent());
 
-      await Future.delayed(Duration.zero);
+      await Future<void>.delayed(Duration.zero);
 
       expect(initProvider.done, [true, false]);
       expect(initProvider.initialized, false);
@@ -145,11 +129,10 @@ void main() {
       blocTheme.add(const ThemeChangerGetThemeEvent());
       blocOnBoarding.add(const ShowOnBoardingEvent(checkIfFirstTimer: true));
 
-      await Future.delayed(Duration.zero);
+      await Future<void>.delayed(Duration.zero);
 
       expect(initProvider.done, [true, true]);
       expect(initProvider.initialized, true);
     });
-
   });
 }

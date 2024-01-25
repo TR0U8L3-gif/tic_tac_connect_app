@@ -16,7 +16,7 @@ class TicTacCircle extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      padding: EdgeInsets.all(lineWidth * 2),
+      padding: EdgeInsets.all(lineWidth),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.transparent,

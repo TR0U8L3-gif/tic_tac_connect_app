@@ -5,6 +5,7 @@ import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/dashboard_p
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/navigation/learn_navigation_page.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/navigation/play_navigation_page.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/navigation/profile_navigation_page.dart';
+import 'package:tic_tac_connect_app/src/initialization/presentation/pages/init_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/on_boarding_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/tutorial_page.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/pages/game_modes_page.dart';
@@ -19,10 +20,14 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
+          page: InitRoute.page,
+          path: InitPage.routeName,
+          initial: true,
+        ),
+        AutoRoute(
           page: OnBoardingRoute.page,
           path: OnBoardingPage.routeName,
           guards: [OnBoardingGuard()],
-          initial: true,
         ),
         AutoRoute(
           page: TutorialRoute.page,

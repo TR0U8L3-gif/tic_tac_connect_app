@@ -22,7 +22,9 @@ class OnBoardingGuard extends AutoRouteGuard {
           if (state.isFirstTimer) {
             resolver.next();
           } else {
-            router.replaceNamed(DashboardPage.routeName);
+            //TO DO
+            //router.replaceNamed(DashboardPage.routeName);
+            resolver.next(false);
           }
           streamSubscription?.cancel();
         }
