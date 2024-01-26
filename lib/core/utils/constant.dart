@@ -7,6 +7,7 @@ const kFontSizeLarge = 36.0;
 const kDuration200 = Duration(milliseconds: 200);
 const kDuration400 = Duration(milliseconds: 400);
 const kDuration600 = Duration(milliseconds: 600);
+const kDuration1000 = Duration(milliseconds: 1000);
 
 // BottomNavBar
 const kBottomNavBarHeight = 72.0;

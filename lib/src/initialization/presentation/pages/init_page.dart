@@ -68,15 +68,15 @@ class _InitPageState extends State<InitPage> with TickerProviderStateMixin {
 
     _loadingController = AnimationController(
       vsync: this,
-      duration: kDuration400,
+      duration: kDuration200,
     );
     _appearController = AnimationController(
       vsync: this,
-      duration: kDuration400,
+      duration: kDuration200,
     );
     _crossController = AnimationController(
       vsync: this,
-      duration: kDuration400,
+      duration: kDuration200,
     );
     _loadingController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {

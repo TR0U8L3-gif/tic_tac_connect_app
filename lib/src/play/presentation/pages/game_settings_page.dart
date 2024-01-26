@@ -9,6 +9,9 @@ import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart
 import 'package:tic_tac_connect_app/src/play/presentation/widgets/settings_buttons.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/widgets/settings_page.dart';
 
+import '../../../../core/common/presentation/widgets/tic_tac_square.dart';
+import '../../../../core/common/presentation/widgets/tic_tac_triangle.dart';
+
 @RoutePage()
 class GameSettingPage extends StatelessWidget {
   const GameSettingPage({super.key});
@@ -204,9 +207,14 @@ class GameSettingPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               TicTacCross(
-                                  size: constraints.maxWidth / 2, lineWidth: 12,),
+                                  size: constraints.maxWidth / 4, lineWidth: 12,),
+                              TicTacTriangle(
+                                size: constraints.maxWidth / 4, lineWidth: 12,),
                               TicTacCircle(
-                                  size: constraints.maxWidth / 2, lineWidth: 12,),
+                                  size: constraints.maxWidth / 4, lineWidth: 12,),
+                              TicTacSquare(
+                                size: constraints.maxWidth / 4, lineWidth: 12,),
+
                             ],
                           ),
                         ),

@@ -16,24 +16,28 @@ class TicTacCross extends StatelessWidget {
     return SizedBox(
       width: size,
       height: size,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Transform.rotate(
-            angle: pi * 0.25,
-            child: TicTacLine(
-              width: size,
-              height: lineWidth,
+      child: OverflowBox(
+        maxHeight: size * sqrt2,
+        maxWidth: size * sqrt2,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Transform.rotate(
+              angle: pi * 0.25,
+              child: TicTacLine(
+                width: size ,
+                height: lineWidth,
+              ),
             ),
-          ),
-          Transform.rotate(
-            angle: pi * -0.25,
-            child: TicTacLine(
-              width: size,
-              height: lineWidth,
+            Transform.rotate(
+              angle: pi * -0.25,
+              child: TicTacLine(
+                width: size ,
+                height: lineWidth,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
