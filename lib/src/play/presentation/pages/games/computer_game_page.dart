@@ -7,7 +7,7 @@ class ComputerGamePage extends StatefulWidget {
   const ComputerGamePage({super.key});
 
   static const routeName = '/computer';
-  static const pathName = 'computer';
+  static const tabName = 'computer';
 
   @override
   State<ComputerGamePage> createState() => _ComputerGamePageState();

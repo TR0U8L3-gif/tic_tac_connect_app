@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:tic_tac_connect_app/config/routes/app_router.gr.dart';
+import 'package:tic_tac_connect_app/config/routes/guard/admin_guard.dart';
 import 'package:tic_tac_connect_app/config/routes/guard/on_boarding_guard.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
+import 'package:tic_tac_connect_app/src/admin/presentation/pages/admin_page.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/navigation/learn_navigation_page.dart';
 import 'package:tic_tac_connect_app/src/dashboard/presentation/pages/navigation/play_navigation_page.dart';
@@ -52,13 +53,13 @@ class AppRouter extends $AppRouter {
                 ),
                 CustomRoute(
                   page: MatchGameRoute.page,
-                  path: MatchGamePage.pathName,
+                  path: MatchGamePage.tabName,
                   transitionsBuilder: TransitionsBuilders.fadeIn,
                   durationInMilliseconds: kDuration200.inMilliseconds,
                 ),
                 CustomRoute(
                   page: ComputerGameRoute.page,
-                  path: ComputerGamePage.pathName,
+                  path: ComputerGamePage.tabName,
                   transitionsBuilder: TransitionsBuilders.fadeIn,
                   durationInMilliseconds: kDuration200.inMilliseconds,
                 ),
@@ -86,6 +87,13 @@ class AppRouter extends $AppRouter {
                 CustomRoute(
                   page: ThemeRoute.page,
                   path: ThemePage.tabName,
+                  transitionsBuilder: TransitionsBuilders.fadeIn,
+                  durationInMilliseconds: kDuration200.inMilliseconds,
+                ),
+                CustomRoute(
+                  page: AdminRoute.page,
+                  path: AdminPage.tabName,
+                  guards: [AdminGuard()],
                   transitionsBuilder: TransitionsBuilders.fadeIn,
                   durationInMilliseconds: kDuration200.inMilliseconds,
                 ),

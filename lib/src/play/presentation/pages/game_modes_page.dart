@@ -52,7 +52,7 @@ class GameModesPage extends StatelessWidget {
                   gameMode: 'computer',
                   definition: 'play against a computer',
                   onTap: () =>
-                      context.router.pushNamed(ComputerGamePage.pathName),
+                      context.router.pushNamed(ComputerGamePage.tabName),
                 ),
                 _tile(
                   context: context,

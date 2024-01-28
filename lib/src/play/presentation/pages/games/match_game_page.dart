@@ -7,7 +7,7 @@ class MatchGamePage extends StatefulWidget {
   const MatchGamePage({super.key});
 
   static const routeName = '/match';
-  static const pathName = 'match';
+  static const tabName = 'match';
   @override
   State<MatchGamePage> createState() => _MatchGamePageState();
 }
