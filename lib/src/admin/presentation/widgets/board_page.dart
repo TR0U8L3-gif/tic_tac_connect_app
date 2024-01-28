@@ -19,11 +19,10 @@ class BoardPage extends StatelessWidget {
     final size = min(context.width, context.height);
     final boardSize = size * sizeFactor;
 
-    const rowLength = 8;
-    const columnLength = 8;
+    const rowLength = 4;
+    const columnLength = 4;
     final smallerSide = min(rowLength, columnLength);
-    final cellSize = 64.0;
-    //= boardSize / smallerSide;
+    final cellSize = boardSize / smallerSide;
     final boardWidth = cellSize * rowLength;
     final boardHeight = cellSize * columnLength;
 
