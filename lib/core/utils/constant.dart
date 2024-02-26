@@ -17,8 +17,11 @@ const kBorderRadiusCircular = 20.0;
 
 //play
 const int kMinBoardSize = 3;
-const int kMaxBoardSize = 6;
+const int kMaxBoardSize = 12;
 const int kMinConnect = 3;
-const int kMaxConnect = kMinBoardSize;
 const int kMinPlayers = 2;
 const int kMaxPlayers = 4;
+
+//cellSize
+const kLineSize = 12.0;
+const kCellSize = 128.0;

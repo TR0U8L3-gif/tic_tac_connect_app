@@ -115,10 +115,6 @@ class Board {
   int _getConnectMax() {
     var result = min(columnLength, rowLength) - (playersMax - kMinPlayers);
 
-    if (result > kMaxConnect) {
-      result = kMaxConnect;
-    }
-
     if (result < kMinConnect) {
       return kMinConnect;
     }

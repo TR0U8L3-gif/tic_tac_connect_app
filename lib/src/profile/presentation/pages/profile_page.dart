@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_scaffold.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/app/app_scaffold.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/src/profile/presentation/widgets/user_options.dart';
 import 'package:tic_tac_connect_app/src/profile/presentation/widgets/user_profile.dart';

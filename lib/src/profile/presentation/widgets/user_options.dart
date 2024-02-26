@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/views/loading_page.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_container.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/app/app_container.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
+import 'package:tic_tac_connect_app/src/admin/presentation/pages/admin_page.dart';
 import 'package:tic_tac_connect_app/src/on_boarding/presentation/pages/tutorial_page.dart';
 import 'package:tic_tac_connect_app/src/theme_changer/presentation/pages/theme_page.dart';
 
@@ -66,11 +67,15 @@ class UserOptions extends StatelessWidget {
               context: context,
               icon: Ionicons.help_circle_outline,
               title: 'help',
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoadingPage()),
-              ),
+              onTap: () {},
             ),
+            if(kDebugMode)
+              _tile(
+                context: context,
+                icon: Ionicons.hammer_outline,
+                title: 'admin',
+                onTap: () => context.router.pushNamed(AdminPage.tabName),
+              ),
           ],
         ),
       ),

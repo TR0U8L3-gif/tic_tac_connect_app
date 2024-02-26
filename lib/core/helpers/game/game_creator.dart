@@ -36,11 +36,7 @@ final class GameCreator {
     required int columnLength,
     required int players,
   }) {
-    var result = min(columnLength, rowLength) - (players - kMinPlayers);
-
-    if (result > kMaxConnect) {
-      result = kMaxConnect;
-    }
+    final result = min(columnLength, rowLength) - (players - kMinPlayers);
 
     if (result < kMinConnect) {
       return kMinConnect;

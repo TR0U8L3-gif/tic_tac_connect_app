@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_scaffold.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/app/app_scaffold.dart';
 
 @RoutePage()
 class MatchGamePage extends StatefulWidget {
   const MatchGamePage({super.key});
 
   static const routeName = '/match';
-  static const pathName = 'match';
+  static const tabName = 'match';
   @override
   State<MatchGamePage> createState() => _MatchGamePageState();
 }
