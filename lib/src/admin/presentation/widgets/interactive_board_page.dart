@@ -19,6 +19,8 @@ class _InteractiveBoardPageState extends State<InteractiveBoardPage> {
   int rowLength = 10;
   int columnLength = 10;
 
+  String text = 'none';
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -41,61 +43,56 @@ class _InteractiveBoardPageState extends State<InteractiveBoardPage> {
                   children: [
                     Align(
                       alignment: Alignment.topCenter,
-                      child: Column(
-                        children: [
-                          Text(controller.toString()),
-                          Text('smallerSize: ${calculator.smallerSize}, '
-                              'isWidthSmaller: ${calculator.isWidthSmaller}, '
-                              'minScale: ${calculator.minScale}, '
-                              'size*minScale: ${constraints.maxWidth * calculator.minScale} ${constraints.maxHeight * calculator.minScale}'),
-                        ],
-                      ),
+                      child: Text('last click: $text'),
                     ),
                     InteractiveViewer(
-                      maxScale: 1,
-                      minScale: calculator.minScale,
+                      maxScale: calculator.boardDataMax.scale,
+                      minScale: calculator.boardDataMin.scale,
                       clipBehavior: Clip.antiAlias,
-                      boundaryMargin: calculator.isOverflow
-                          ? controller.value.entry(0, 0) >= calculator.minScale
-                              ? const EdgeInsets.all(double.infinity)
-                              : EdgeInsets.zero
-                          : EdgeInsets.zero,
+                      boundaryMargin: const EdgeInsets.all(double.infinity),
                       onInteractionUpdate: (data) => setState(() {}),
                       transformationController: controller,
                       child: OverflowBox(
-                        maxWidth: calculator.boardWidth,
-                        maxHeight: calculator.boardHeight,
-                        minWidth: calculator.boardWidth * calculator.minScale,
-                        minHeight: calculator.boardHeight * calculator.minScale,
+                        maxWidth: calculator.boardDataMax.width,
+                        maxHeight: calculator.boardDataMax.height,
+                        minWidth: calculator.boardDataMin.width,
+                        minHeight: calculator.boardDataMin.height,
                         alignment: Alignment.topLeft,
                         child: Stack(
-                          alignment: Alignment.center,
+                          //alignment: Alignment.center,
                           children: [
                             TicTacBoardResponsive(
-                              cellSize: calculator.cellSize,
-                              lineSize: kLineSize,
+                              cellSize: calculator.boardDataMin.cellSize,
+                              lineSize: calculator.boardDataMin.lineSize,
                               columnLength: columnLength,
                               rowLength: rowLength,
                             ),
-                            GridView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.zero,
-                              itemCount: columnLength * rowLength,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: rowLength,
+                            SizedBox(
+                              width: calculator.boardDataMin.width,
+                              height: calculator.boardDataMin.height,
+                              child: GridView.builder(
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: EdgeInsets.zero,
+                                itemCount: columnLength * rowLength,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: rowLength,
+                                ),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    width: calculator.boardDataMin.cellSize,
+                                    height: calculator.boardDataMin.cellSize,
+                                    color: Colors.tealAccent.withOpacity(Random().nextDouble()),
+                                    child: InkWell(
+                                      onDoubleTap: () => setState(() {
+                                        text = '$index '
+                                            'x:${index % rowLength} '
+                                            'y:${index ~/ rowLength}';
+                                      }),
+                                    ),
+                                  );
+                                },
                               ),
-                              itemBuilder: (context, index) {
-                                return InkWell(
-                                  onTap: () => debugPrint('$index '
-                                      'x:${index % rowLength} '
-                                      'y:${index ~/ rowLength}'),
-                                  child: SizedBox(
-                                    height: calculator.cellSize,
-                                    width: calculator.cellSize,
-                                  ),
-                                );
-                              },
                             ),
                           ],
                         ),
