@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/views/loading_page.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_scaffold.dart';
 import 'package:tic_tac_connect_app/src/admin/presentation/widgets/board_page.dart';
+import 'package:tic_tac_connect_app/src/admin/presentation/widgets/interactive_board_page.dart';
 
 @RoutePage()
 class AdminPage extends StatelessWidget {
@@ -20,6 +21,12 @@ class AdminPage extends StatelessWidget {
               builder: (BuildContext context) => const LoadingPage(),
             ),),
             title: const Text('Loading Page'),
+          ),
+          ListTile(
+            onTap: () => Navigator.push(context, MaterialPageRoute<dynamic> (
+              builder: (BuildContext context) => const InteractiveBoardPage(),
+            ),),
+            title: const Text('Interactive Board Page'),
           ),
           ListTile(
             onTap: () => Navigator.push(context, MaterialPageRoute<dynamic> (

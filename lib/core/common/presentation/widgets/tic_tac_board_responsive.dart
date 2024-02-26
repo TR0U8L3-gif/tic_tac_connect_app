@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_line.dart';
 
-class TicTacBoardTest extends StatelessWidget {
-  const TicTacBoardTest({
+class TicTacBoardResponsive extends StatelessWidget {
+  const TicTacBoardResponsive({
     required this.cellSize,
     required this.lineSize,
     required this.rowLength,
@@ -27,32 +27,32 @@ class TicTacBoardTest extends StatelessWidget {
       child: Stack(
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
                 height: lineSize/2,
               ),
               for(var i = 0; i < columnLength - 1; i++)
-              TicTacLine(
-                width: double.infinity,
-                height: lineSize,
-              ),
+                TicTacLine(
+                  width: boardWidth,
+                  height: lineSize,
+                  padding: EdgeInsets.only(top: cellSize - lineSize),
+                ),
               SizedBox(
                 height: lineSize/2,
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
                 width: lineSize/2,
               ),
               for(var i = 0; i < rowLength - 1; i++)
-              TicTacLine(
-                width: lineSize,
-                height: double.infinity,
-              ),
+                TicTacLine(
+                  width: lineSize,
+                  height: boardHeight,
+                  padding: EdgeInsets.only(left: cellSize - lineSize),
+                ),
               SizedBox(
                 width: lineSize/2,
               ),
