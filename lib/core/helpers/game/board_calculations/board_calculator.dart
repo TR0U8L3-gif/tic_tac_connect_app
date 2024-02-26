@@ -1,11 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
+import 'package:tic_tac_connect_app/core/helpers/game/board_calculations/board_data.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:vector_math/vector_math_64.dart' as math64;
 
-class InteractiveBoardCalculator extends ChangeNotifier {
-  InteractiveBoardCalculator({
+class BoardCalculator extends ChangeNotifier {
+  BoardCalculator({
     required this.rowLength,
     required this.columnLength,
     required this.maxWidth,
@@ -29,7 +30,7 @@ class InteractiveBoardCalculator extends ChangeNotifier {
       height: cellSize * columnLength * scale,
       lineSize: kLineSize,
       cellSize: cellSize * scale,
-      scale: scale <= 1 ? 2 : scale * 2,
+      scale: scale <= 1 ? 1 : scale,
     );
 
     boardDataMin = InteractiveBoardData(
@@ -54,10 +55,19 @@ class InteractiveBoardCalculator extends ChangeNotifier {
 
   late InteractiveBoardData boardDataMin;
   late InteractiveBoardData boardDataMax;
+}
+
+class InteractiveBoardCalculator extends BoardCalculator {
+  InteractiveBoardCalculator({
+    required super.rowLength,
+    required super.columnLength,
+    required super.maxWidth,
+    required super.maxHeight,
+  });
 
   math64.Matrix4 centerBoard(
-    math64.Matrix4 matrix4,
-  ) {
+      math64.Matrix4 matrix4,
+      ) {
     if (!initialized) {
       throw Exception('InteractiveBoardCalculator is not initialized');
     }
@@ -72,20 +82,4 @@ class InteractiveBoardCalculator extends ChangeNotifier {
     );
     return matrix;
   }
-}
-
-class InteractiveBoardData {
-  InteractiveBoardData({
-    required this.width,
-    required this.height,
-    required this.lineSize,
-    required this.cellSize,
-    required this.scale,
-  });
-
-  final double width;
-  final double height;
-  final double lineSize;
-  final double cellSize;
-  final double scale;
 }

@@ -1,10 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_board.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_circle.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_cross.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_line.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_board.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_circle.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_cross.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 
 class LoadingPage extends StatelessWidget {

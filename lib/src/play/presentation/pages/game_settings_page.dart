@@ -1,16 +1,15 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_scaffold.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_board.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_circle.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_cross.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/app/app_scaffold.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_board.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_circle.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_cross.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_square.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_triangle.dart';
 import 'package:tic_tac_connect_app/core/utils/constant.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/widgets/settings_buttons.dart';
 import 'package:tic_tac_connect_app/src/play/presentation/widgets/settings_page.dart';
-
-import '../../../../core/common/presentation/widgets/tic_tac_square.dart';
-import '../../../../core/common/presentation/widgets/tic_tac_triangle.dart';
 
 @RoutePage()
 class GameSettingPage extends StatelessWidget {
@@ -191,7 +190,8 @@ class GameSettingPage extends StatelessWidget {
                                   ),
                                 ),
                                 const Text(
-                                  'set or randomize the order of playing the games',
+                                  'set or randomize the order of playing '
+                                  'the games',
                                   style: TextStyle(
                                     fontSize: kFontSizeSmall,
                                     color: Colors.grey,
@@ -207,14 +207,21 @@ class GameSettingPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               TicTacCross(
-                                  size: constraints.maxWidth / 4, lineWidth: 12,),
+                                size: constraints.maxWidth / 4,
+                                lineWidth: 12,
+                              ),
                               TicTacTriangle(
-                                size: constraints.maxWidth / 4, lineWidth: 12,),
+                                size: constraints.maxWidth / 4,
+                                lineWidth: 12,
+                              ),
                               TicTacCircle(
-                                  size: constraints.maxWidth / 4, lineWidth: 12,),
+                                size: constraints.maxWidth / 4,
+                                lineWidth: 12,
+                              ),
                               TicTacSquare(
-                                size: constraints.maxWidth / 4, lineWidth: 12,),
-
+                                size: constraints.maxWidth / 4,
+                                lineWidth: 12,
+                              ),
                             ],
                           ),
                         ),

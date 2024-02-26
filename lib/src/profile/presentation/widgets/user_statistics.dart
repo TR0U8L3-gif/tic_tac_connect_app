@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/app_container.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/app/app_container.dart';
 import 'package:tic_tac_connect_app/core/utils/extensions/context_extension.dart';
 
 class UserStatistics extends StatelessWidget {

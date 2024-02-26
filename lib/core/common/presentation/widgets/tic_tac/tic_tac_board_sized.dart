@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_line.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_line.dart';
 
-class TicTacBoardResponsive extends StatelessWidget {
-  const TicTacBoardResponsive({
+class TicTacBoardSized extends StatelessWidget {
+  const TicTacBoardSized({
     required this.cellSize,
     required this.lineSize,
     required this.rowLength,

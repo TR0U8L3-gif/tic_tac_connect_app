@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac_line.dart';
+import 'package:tic_tac_connect_app/core/common/presentation/widgets/tic_tac/tic_tac_line.dart';
 
 class TicTacCross extends StatelessWidget {
   const TicTacCross({
